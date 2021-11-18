@@ -8,9 +8,14 @@ This is a repository of all the work that goes into the Crave on Campus project 
   * Ali Camlibel
   * Lakshmi Medineni
 ## Project Background and Description
-The project background should go here. This will describe what the previous year’s students have already done, and some general background information on the Crave on Campus project.
+The ERD system consists of the 1st Level Dataflow Diagram and Second Level Dataflow Diagram. The 1st Level Dataflow Diagram indicates that the system is divided into sub-systems such as vehicle details, drivers’ details, people involved-Student/Staff, Location-faculties for students and staff, orders, and restaurant details/Ratings. Each unit deals with one or more data flow. All of them combined to give the functionality of the college/university restaurant management system.
+
+In the 1st level Dataflow Diagram, the main entities and outputs include processing the user records and generating a report of user categories (Student, Staff, Drivers - ratings), processing all orders category records and producing a report of all orders, and processing locations of all orders made and reports of those locations (Different faculties). It also supports processing details of vehicles used in the delivery of orders in different locations (faculties), processing delivery details and generating a report on all deliveries made, processing orders made by the student and producing reports, and processing orders made by staff and producing reports.
+
+The 2nd level Data Flow Diagram gives deeper information of the college/university restaurant management system. It contains more details of the hotel staff, customers, means of payments, exact locations, order IDs, Driver IDs, Drivers employment details, Rating about the driver, restaurant and services and Details of student graduation year. 
+The 2nd level Dataflow Diagram functionalities where admin can log in and manage all the functionalities of the system. It also allow the admin to add, remove, and update student, staff, or driver details and provide the ratings to food delivery ratings. The other functionality is that it allows the admin to generate accurate reports of all restaurant sections-faculties, orders, staff, drivers, and location, delivery, or payment details.
 ## Project Scope
-The scope of our project should go here.
+The main purpose of this college/university restaurant management system is to show the production of reports, inventories, staff/student/driver/location/faculty/vehicle records/ratings as well as managing orders. This system is only useful to users which are involved in restaurant interactions such as staff, students, and drivers as well as ratings.
 ## Business Rules
 The new system must include the following:
 * Ability to easily retrieve ratings on both drivers and restaurants that are a part of the system.  
