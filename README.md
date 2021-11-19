@@ -1,6 +1,8 @@
 # Crave on Campus (Expanded)
 This is a repository of all the work that goes into the Crave on Campus project we have for DSBA-6160.
 
+Data Dictionary: https://acamlibe.github.io/Crave-on-Campus-Expanded/Dictionary
+
 ## Team Members
 * Saurabh Vijay
 * Shina Dhingra
