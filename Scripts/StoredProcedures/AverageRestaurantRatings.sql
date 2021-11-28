@@ -4,7 +4,7 @@ DROP procedure IF EXISTS `average_restaurant_ratings`;
 DELIMITER $$
 CREATE PROCEDURE `average_restaurant_ratings` ()
 BEGIN
-	SELECT AVG (RATING)
+    SELECT AVG (RATING)
     FROM RestaurantRatingTable;
 END$$
 
