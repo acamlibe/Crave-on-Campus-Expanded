@@ -1,0 +1,16 @@
+/* Function that returns the Restaurant_ID given the Restaurant_Name*/
+
+DELIMITER / /
+CREATE FUNCTION get_Rest_id
+(Rest_name VARCHAR(75))
+RETURNS INT(11)
+DETERMINISTIC READS SQL DATA
+BEGIN
+DECLARE rest_id_var INT(11);
+SELECT restaurant_ID INTO rest_id_var FROM restaurant
+WHERE Restaurant_name = Rest_name;
+RETURN(rest_id_var);
+END / /
+SELECT * 
+FROM restaurant
+WHERE restaurant_ID = get_Rest_id('Kerluke-Herman');
