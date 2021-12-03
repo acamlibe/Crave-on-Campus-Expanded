@@ -1,4 +1,4 @@
-Drop database IF EXISTS Campus_Eats_Fall2020;
+Drop database Campus_Eats_Fall2020;
 Create database Campus_Eats_Fall2020;
 Use Campus_Eats_Fall2020;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
@@ -355,16 +355,108 @@ CREATE TABLE `DriverRatingTable` (
 LOCK TABLES `DriverRatingTable` WRITE;
 INSERT INTO `DriverRatingTable` (`DriverRating_ID`,`Driver_ID`,`Rating`)
 VALUES
-  (1,1,3),
-  (2,2,5),
-  (3,3,4),
-  (4,4,3),
-  (5,5,1),
-  (6,6,4),
-  (7,7,2),
-  (8,8,3);
-UNLOCK TABLES;
+   (1,2,2),
+  (2,5,3),
+  (3,5,2),
+  (4,3,5),
+  (5,3,1),
+  (6,5,4),
+  (7,2,4),
+  (8,7,3),
+  (9,3,3),
+  (10,3,5),
+  (11,7,2),
+  (12,3,2),
+  (13,7,4),
+  (14,4,1),
+  (15,3,4),
+  (16,1,4),
+  (17,3,2),
+  (18,4,3),
+  (19,7,3),
+  (20,3,4),
+  (21,8,2),
+  (22,8,2),
+  (23,2,3),
+  (24,5,2),
+  (25,6,4),
+  (26,3,3),
+  (27,5,1),
+  (28,2,1),
+  (29,6,2),
+  (30,2,2),
+  (31,2,2),
+  (32,2,4),
+  (33,7,3),
+  (34,4,1),
+  (35,7,1),
+  (36,2,3),
+  (37,2,2),
+  (38,4,2),
+  (39,2,5),
+  (40,5,5),
+  (41,6,4),
+  (42,5,2),
+  (43,3,3),
+  (44,6,2),
+  (45,8,4),
+  (46,1,4),
+  (47,4,4),
+  (48,5,1),
+  (49,7,1),
+  (50,3,4),
+  (51,3,2),
+  (52,6,2),
+  (53,7,2),
+  (54,3,4),
+  (55,1,3),
+  (56,8,3),
+  (57,2,4),
+  (58,6,1),
+  (59,5,1),
+  (60,4,5),
+  (61,8,3),
+  (62,6,2),
+  (63,7,4),
+  (64,6,2),
+  (65,5,4),
+  (66,3,3),
+  (67,6,4),
+  (68,3,3),
+  (69,2,3),
+  (70,4,4),
+  (71,2,3),
+  (72,3,1),
+  (73,1,3),
+  (74,1,1),
+  (75,8,4),
+  (76,6,3),
+  (77,2,2),
+  (78,5,1),
+  (79,7,4),
+  (80,5,1),
+  (81,4,4),
+  (82,2,4),
+  (83,7,3),
+  (84,4,2),
+  (85,3,2),
+  (86,1,2),
+  (87,2,3),
+  (88,3,2),
+  (89,4,1),
+  (90,2,2),
+  (91,4,4),
+  (92,3,4),
+  (93,5,4),
+  (94,3,3),
+  (95,1,2),
+  (96,3,3),
+  (97,5,5),
+  (98,2,3),
+  (99,1,3),
+  (100,7,2);
 
+UNLOCK TABLES;
 --
 -- Table structure for table `restaurant`
 --
@@ -493,7 +585,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`admin`@`%` PROCEDURE `add_person`(in person_name varchar(300), in email varchar(150), cellno bigint (15), person_type varchar(10))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `add_person`(in person_name varchar(300), in email varchar(150), cellno bigint (15), person_type varchar(10))
 BEGIN
 insert into person (person_name, person_email, cell) values(person_name, email, cellno);
 if(person_type = 'student') then
@@ -525,7 +617,7 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8mb4 */;
 -- /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`admin`@`%` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `person_join` AS select `person`.`person_id` AS `person_id`,`person`.`person_name` AS `person_name`,`person`.`person_email` AS `person_email`,`student`.`student_id` AS `student_id`,`student`.`graduation_year` AS `graduation_year` from (`person` join `student` on((`student`.`person_id` = `person`.`person_id`))) where (`student`.`major` = 'Computer Science') */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -543,7 +635,7 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8mb4 */;
 -- /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`admin`@`%` SQL SECURITY DEFINER */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `person_student` AS select `a`.`person_id` AS `person_id`,`a`.`person_name` AS `person_name`,`a`.`person_email` AS `person_email`,`a`.`cell` AS `cell` from `person` `a` where `a`.`person_id` in (select `student`.`person_id` from `student` where (`student`.`graduation_year` = 2019)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
@@ -607,7 +699,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`admin`@`%`*/ /*!50003 TRIGGER `order_AFTER_INSERT` AFTER INSERT ON `order` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `order_AFTER_INSERT` AFTER INSERT ON `order` FOR EACH ROW BEGIN
 	insert into niner_eats.delivery (driver_id, vehicle_id) values(new.driver_id, 2);
 END */;;
 DELIMITER ;
@@ -615,3 +707,8 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 -- /*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+select * from `order` ;
+select * from driver;
+select * from RestaurantRatingTable;
+select * from DriverRatingTable;
