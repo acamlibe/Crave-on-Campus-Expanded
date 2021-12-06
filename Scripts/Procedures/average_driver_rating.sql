@@ -5,7 +5,7 @@
 */
 
 USE `Campus_Eats_Fall2020`;
-DROP procedure IF EXISTS `average_driver_ratings`;
+DROP PROCEDURE IF EXISTS `average_driver_ratings`;
 
 DELIMITER $$
 CREATE PROCEDURE `average_driver_ratings` (
