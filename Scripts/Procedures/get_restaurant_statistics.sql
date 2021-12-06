@@ -1,5 +1,5 @@
 /*
-	Stored procedure to get statistics on a restaurant, 
+    Stored procedure to get statistics on a restaurant, 
     given a restaurant id.
 */
 
