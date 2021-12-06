@@ -4,11 +4,11 @@
 */
 
 USE `Campus_Eats_Fall2020`;
-DROP PROCEDURE IF EXISTS `restaurant_statistics`;
+DROP PROCEDURE IF EXISTS `get_restaurant_statistics`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `restaurant_statistics` (
+CREATE PROCEDURE `get_restaurant_statistics` (
 	IN search_restaurant_id INT
 )
 BEGIN
