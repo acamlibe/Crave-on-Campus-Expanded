@@ -709,7 +709,7 @@ DELIMITER ;
 -- /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 /* Added Stored Procedures */
-DROP procedure IF EXISTS `average_driver_ratings`;
+DROP PROCEDURE IF EXISTS `average_driver_ratings`;
 
 DELIMITER $$
 CREATE PROCEDURE `average_driver_ratings` (
@@ -749,4 +749,23 @@ END$$
 
 DELIMITER ;
 
+/* Added Functions */
+DROP FUNCTION IF EXISTS `get_restaurant_id`;
 
+/* Create Function */
+DELIMITER $$
+
+CREATE FUNCTION get_restaurant_id (restaurant_name_var VARCHAR(100))
+RETURNS INT
+
+BEGIN
+    DECLARE restaurant_id_var INT;
+    
+
+    SELECT restaurant_ID INTO restaurant_id_var 
+    FROM restaurant
+    WHERE Restaurant_name = restaurant_name_var;
+    RETURN(restaurant_id_var);
+END $$
+
+/* Added Views */
