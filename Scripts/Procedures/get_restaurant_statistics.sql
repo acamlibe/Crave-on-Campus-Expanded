@@ -8,7 +8,9 @@ DROP PROCEDURE IF EXISTS `get_restaurant_statistics`;
 
 DELIMITER $$
 
-CREATE PROCEDURE `get_restaurant_statistics` (
+/* Create the Procedure */
+CREATE PROCEDURE `get_restaurant_statistics` 
+(
     IN search_restaurant_id INT
 )
 BEGIN
@@ -40,5 +42,5 @@ END$$
 
 DELIMITER ;
 
-/* Test stored procedure */
+/* Test the Procedure */
 CALL restaurant_statistics (7);

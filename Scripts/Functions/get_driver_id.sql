@@ -1,9 +1,16 @@
+/*
+    This query returns the driver id based on a given name by
+    joining the student table that has a relationship with the
+    person table.
+*/
+
 USE Campus_Eats_Fall2020;
 
 DROP FUNCTION IF EXISTS get_driver_id;
 
 DELIMITER $$
 
+/* Create the Function */
 CREATE FUNCTION get_driver_id
 (
    driver_name VARCHAR(100)
@@ -27,6 +34,7 @@ END$$
 
 DELIMITER ;
 
+/* Test the Function */
 SELECT *
 FROM driver
 WHERE driver_id = get_driver_id('Ms. Sincere McDermott');

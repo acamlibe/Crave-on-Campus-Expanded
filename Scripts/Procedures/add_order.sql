@@ -7,6 +7,7 @@ DROP PROCEDURE IF EXISTS `add_order`;
 
 DELIMITER $$
 
+/* Create the Procedure */
 CREATE PROCEDURE `add_order` (
     IN added_person_id INT,
     IN added_delivery_id INT,
@@ -31,5 +32,5 @@ END$$
 
 DELIMITER ;
 
-/* Test stored procedure */
+/* Test the Procedure */
 CALL add_order (7, 2, 4, 5, 3, 15.86, 3.25);

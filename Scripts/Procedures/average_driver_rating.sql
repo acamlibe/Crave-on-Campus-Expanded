@@ -1,14 +1,15 @@
 /*
     This stored procedure provides average ratings for Driver given the Driver ID.
-    
-    
 */
 
 USE `Campus_Eats_Fall2020`;
 DROP PROCEDURE IF EXISTS `average_driver_ratings`;
 
 DELIMITER $$
-CREATE PROCEDURE `average_driver_ratings` (
+
+/* Create the Procedure */
+CREATE PROCEDURE `average_driver_ratings` 
+(
     IN search_driver_id INT
 )
 
@@ -25,6 +26,7 @@ END$$
 
 DELIMITER ;
 
+/* Test the Procedure */
 # Call for average rating for ALL Drivers.
 CALL average_driver_ratings (NULL);
 

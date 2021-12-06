@@ -1,9 +1,11 @@
-/* Function that returns the Restaurant_ID given the Restaurant_Name*/
+/* 
+    Function that returns the Restaurant_ID given the Restaurant_Name
+*/
 
 USE `Campus_Eats_Fall2020`;
 DROP FUNCTION IF EXISTS `get_restaurant_id`;
 
-/* Create Function */
+/* Create the Function */
 DELIMITER $$
 
 CREATE FUNCTION get_restaurant_id 
@@ -22,7 +24,7 @@ BEGIN
     RETURN(restaurant_id_var);
 END $$
 
-/* Test Function */
+/* Test the Function */
 SELECT * 
 FROM restaurant
 WHERE restaurant_ID = get_restaurant_id('Kerluke-Herman');

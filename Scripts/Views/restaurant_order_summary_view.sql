@@ -5,6 +5,7 @@
 
 DROP VIEW IF EXISTS restaurant_order_summary;
 
+/* Create the View */
 CREATE VIEW restaurant_order_summary AS
     SELECT 
         o.restaurant_id,
@@ -20,3 +21,7 @@ CREATE VIEW restaurant_order_summary AS
         ON o.driver_id = d.Driver_ID
     GROUP BY r.restaurant_id
     ORDER BY r.restaurant_id;
+
+/* Test the View */
+SELECT *
+FROM restaurant_order_summary;

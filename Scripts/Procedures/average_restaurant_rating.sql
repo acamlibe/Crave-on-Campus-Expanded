@@ -3,13 +3,14 @@
     
     You can provide a restaurant_id to filter the ratings for, 
     or pass in NULL for an average rating for ALL restaurants.
-    
 */
 
 USE `Campus_Eats_Fall2020`;
 DROP PROCEDURE IF EXISTS `average_restaurant_ratings`;
 
 DELIMITER $$
+
+/* Create the Procedure */
 CREATE PROCEDURE `average_restaurant_ratings` (
     IN search_restaurant_id INT
 )
@@ -27,6 +28,7 @@ END$$
 
 DELIMITER ;
 
+/* Test the Procedure */
 # Call for average rating for ALL restaurants.
 CALL average_restaurant_ratings (NULL);
 
