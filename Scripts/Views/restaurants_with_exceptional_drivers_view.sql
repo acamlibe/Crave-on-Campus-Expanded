@@ -20,7 +20,7 @@ CREATE VIEW restaurants_with_exceptional_drivers AS
     WHERE EXISTS
             (SELECT Driver_Id 
             FROM DriverRatingTable AS drt
-            WHERE Rating > 4
+            WHERE Rating >= 4
                 AND drt.Driver_Id = o.Driver_Id
             )
     GROUP BY r.restaurant_name, r.location

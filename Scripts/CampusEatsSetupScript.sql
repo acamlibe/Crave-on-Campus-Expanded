@@ -936,7 +936,7 @@ CREATE VIEW restaurants_with_exceptional_drivers AS
             FROM
                 DriverRatingTable AS drt
             WHERE
-                Rating > 4
+                Rating >= 4
                     AND drt.Driver_Id = o.Driver_Id)
     GROUP BY r.restaurant_name , r.location
     ORDER BY r.restaurant_name , r.location;
