@@ -8,7 +8,7 @@ DROP PROCEDURE IF EXISTS `add_order`;
 DELIMITER $$
 
 CREATE PROCEDURE `add_order` (
-	IN added_person_id INT,
+    IN added_person_id INT,
     IN added_delivery_id INT,
     IN added_location_id INT,
     IN added_driver_id INT,
