@@ -708,7 +708,45 @@ DELIMITER ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 -- /*!50003 SET collation_connection  = @saved_col_connection */ ;
 
-select * from `order` ;
-select * from driver;
-select * from RestaurantRatingTable;
-select * from DriverRatingTable;
+/* Added Stored Procedures */
+DROP procedure IF EXISTS `average_driver_ratings`;
+
+DELIMITER $$
+CREATE PROCEDURE `average_driver_ratings` (
+    IN search_driver_id INT
+)
+
+BEGIN
+    IF search_driver_id IS NULL THEN
+        SELECT AVG (Rating)
+        FROM DriverRatingTable;
+    ELSE
+        SELECT AVG (Rating)
+        FROM DriverRatingTable
+        WHERE Driver_ID = search_driver_id;
+    END IF;
+END$$
+
+DELIMITER ;
+
+DROP procedure IF EXISTS `average_restaurant_ratings`;
+
+DELIMITER $$
+CREATE PROCEDURE `average_restaurant_ratings` (
+    IN search_restaurant_id INT
+)
+
+BEGIN
+    IF search_restaurant_id IS NULL THEN
+        SELECT AVG (RATING)
+        FROM RestaurantRatingTable;
+    ELSE
+        SELECT AVG (RATING)
+        FROM RestaurantRatingTable
+        WHERE restaurant_id = search_restaurant_id;
+    END IF;
+END$$
+
+DELIMITER ;
+
+
