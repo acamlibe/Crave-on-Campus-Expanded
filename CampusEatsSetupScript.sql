@@ -31,16 +31,18 @@ DROP TABLE IF EXISTS `delivery`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `delivery` (
-  `delivery_id` int(11) NOT NULL AUTO_INCREMENT,
-  `driver_id` int(11) NOT NULL,
-  `vehicle_id` int(11) NOT NULL,
-  `delivery_time` datetime DEFAULT NULL,
-  PRIMARY KEY (`delivery_id`),
-  KEY `fk_delivery_driver_id` (`driver_id`),
-  KEY `fk_delivery_vehicle_id` (`vehicle_id`),
-  CONSTRAINT `fk_delivery_driver_id` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`),
-  CONSTRAINT `fk_delivery_vehicle_id` FOREIGN KEY (`vehicle_id`) REFERENCES `vehicle` (`vehicle_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
+    `delivery_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `driver_id` INT(11) NOT NULL,
+    `vehicle_id` INT(11) NOT NULL,
+    `delivery_time` DATETIME DEFAULT NULL,
+    PRIMARY KEY (`delivery_id`),
+    KEY `fk_delivery_driver_id` (`driver_id`),
+    KEY `fk_delivery_vehicle_id` (`vehicle_id`),
+    CONSTRAINT `fk_delivery_driver_id` FOREIGN KEY (`driver_id`)
+        REFERENCES `driver` (`driver_id`),
+    CONSTRAINT `fk_delivery_vehicle_id` FOREIGN KEY (`vehicle_id`)
+        REFERENCES `vehicle` (`vehicle_id`)
+)  ENGINE=INNODB AUTO_INCREMENT=102 DEFAULT CHARSET=LATIN1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,15 +63,16 @@ DROP TABLE IF EXISTS `driver`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `driver` (
-  `driver_id` int(11) NOT NULL AUTO_INCREMENT,
-  `student_id` int(11) NOT NULL,
-  `license_number` varchar(75) DEFAULT NULL,
-  `date_hired` date DEFAULT NULL,
-  `rating` float DEFAULT NULL,
-  PRIMARY KEY (`driver_id`),
-  KEY `fk_D_student_id` (`student_id`),
-  CONSTRAINT `fk_D_student_id` FOREIGN KEY (`student_id`) REFERENCES `student` (`student_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+    `driver_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `student_id` INT(11) NOT NULL,
+    `license_number` VARCHAR(75) DEFAULT NULL,
+    `date_hired` DATE DEFAULT NULL,
+    `rating` FLOAT DEFAULT NULL,
+    PRIMARY KEY (`driver_id`),
+    KEY `fk_D_student_id` (`student_id`),
+    CONSTRAINT `fk_D_student_id` FOREIGN KEY (`student_id`)
+        REFERENCES `student` (`student_id`)
+)  ENGINE=INNODB AUTO_INCREMENT=9 DEFAULT CHARSET=LATIN1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,15 +93,16 @@ DROP TABLE IF EXISTS `faculty`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `faculty` (
-  `faculty_id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` int(11) NOT NULL,
-  `title` varchar(75) DEFAULT NULL,
-  `degree_college` varchar(75) DEFAULT NULL,
-  `highest_degree` varchar(75) DEFAULT NULL,
-  PRIMARY KEY (`faculty_id`),
-  KEY `fk_F_person_id` (`person_id`),
-  CONSTRAINT `fk_F_person_id` FOREIGN KEY (`person_id`) REFERENCES `person` (`person_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=latin1;
+    `faculty_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `person_id` INT(11) NOT NULL,
+    `title` VARCHAR(75) DEFAULT NULL,
+    `degree_college` VARCHAR(75) DEFAULT NULL,
+    `highest_degree` VARCHAR(75) DEFAULT NULL,
+    PRIMARY KEY (`faculty_id`),
+    KEY `fk_F_person_id` (`person_id`),
+    CONSTRAINT `fk_F_person_id` FOREIGN KEY (`person_id`)
+        REFERENCES `person` (`person_id`)
+)  ENGINE=INNODB AUTO_INCREMENT=27 DEFAULT CHARSET=LATIN1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,16 +123,16 @@ DROP TABLE IF EXISTS `location`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `location` (
-  `location_id` int(11) NOT NULL AUTO_INCREMENT,
-  `location_name` varchar(75) DEFAULT NULL,
-  `location_address` varchar(75) DEFAULT NULL,
-  `latitude` varchar(75) DEFAULT NULL,
-  `longitude` varchar(75) DEFAULT NULL,
-  `drop_off_point` varchar(75) DEFAULT NULL,
-  PRIMARY KEY (`location_id`),
-  UNIQUE KEY `location_index_desc` (`location_id` DESC),
-  KEY `idx_location_location_name` (`location_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
+    `location_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `location_name` VARCHAR(75) DEFAULT NULL,
+    `location_address` VARCHAR(75) DEFAULT NULL,
+    `latitude` VARCHAR(75) DEFAULT NULL,
+    `longitude` VARCHAR(75) DEFAULT NULL,
+    `drop_off_point` VARCHAR(75) DEFAULT NULL,
+    PRIMARY KEY (`location_id`),
+    UNIQUE KEY `location_index_desc` (`location_id` DESC),
+    KEY `idx_location_location_name` (`location_name`)
+)  ENGINE=INNODB AUTO_INCREMENT=101 DEFAULT CHARSET=LATIN1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,12 +154,12 @@ DROP TABLE IF EXISTS `person`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `person` (
-  `person_id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_name` varchar(300) DEFAULT NULL,
-  `person_email` varchar(150) DEFAULT NULL,
-  `cell` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`person_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=206 DEFAULT CHARSET=latin1;
+    `person_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `person_name` VARCHAR(300) DEFAULT NULL,
+    `person_email` VARCHAR(150) DEFAULT NULL,
+    `cell` BIGINT(20) DEFAULT NULL,
+    PRIMARY KEY (`person_id`)
+)  ENGINE=INNODB AUTO_INCREMENT=206 DEFAULT CHARSET=LATIN1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -205,11 +209,11 @@ SET character_set_client = @saved_cs_client;
 DROP TABLE IF EXISTS `RestaurantRatingTable`;
 
 CREATE TABLE `RestaurantRatingTable` (
-  `RestaurantRating_ID` mediumint,
-  `Restaurant_ID` mediumint,
-  `Rating` mediumint default NULL,
-  PRIMARY KEY (`RestaurantRating_ID`)
-) AUTO_INCREMENT=1;
+    `RestaurantRating_ID` MEDIUMINT,
+    `Restaurant_ID` MEDIUMINT,
+    `Rating` MEDIUMINT DEFAULT NULL,
+    PRIMARY KEY (`RestaurantRating_ID`)
+)  AUTO_INCREMENT=1;
 
 --
 -- Dumping data for table `RestaurantRatingTable`
@@ -343,11 +347,11 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `DriverRatingTable`;
 
 CREATE TABLE `DriverRatingTable` (
-   `DriverRating_ID` mediumint,
-  `Driver_ID` mediumint,
-  `Rating` mediumint default NULL,
-  PRIMARY KEY (`DriverRating_ID`)
-) AUTO_INCREMENT=1;
+    `DriverRating_ID` MEDIUMINT,
+    `Driver_ID` MEDIUMINT,
+    `Rating` MEDIUMINT DEFAULT NULL,
+    PRIMARY KEY (`DriverRating_ID`)
+)  AUTO_INCREMENT=1;
 
 --
 -- Dumping data for table `DriverRatingTable`
@@ -465,13 +469,13 @@ DROP TABLE IF EXISTS `restaurant`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `restaurant` (
-  `restaurant_id` int(11) NOT NULL AUTO_INCREMENT,
-  `location` varchar(75) DEFAULT NULL,
-  `restaurant_name` varchar(75) DEFAULT NULL,
-  `schedule` varchar(75) DEFAULT NULL,
-  `website` varchar(75) DEFAULT NULL,
-  PRIMARY KEY (`restaurant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
+    `restaurant_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `location` VARCHAR(75) DEFAULT NULL,
+    `restaurant_name` VARCHAR(75) DEFAULT NULL,
+    `schedule` VARCHAR(75) DEFAULT NULL,
+    `website` VARCHAR(75) DEFAULT NULL,
+    PRIMARY KEY (`restaurant_id`)
+)  ENGINE=INNODB AUTO_INCREMENT=101 DEFAULT CHARSET=LATIN1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -521,15 +525,16 @@ DROP TABLE IF EXISTS `student`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `student` (
-  `student_id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` int(11) NOT NULL,
-  `graduation_year` int(4) DEFAULT NULL,
-  `major` varchar(75) DEFAULT NULL,
-  `type` varchar(75) DEFAULT NULL,
-  PRIMARY KEY (`student_id`),
-  KEY `fk_St_person_id` (`person_id`),
-  CONSTRAINT `fk_St_person_id` FOREIGN KEY (`person_id`) REFERENCES `person` (`person_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=152 DEFAULT CHARSET=latin1;
+    `student_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `person_id` INT(11) NOT NULL,
+    `graduation_year` INT(4) DEFAULT NULL,
+    `major` VARCHAR(75) DEFAULT NULL,
+    `type` VARCHAR(75) DEFAULT NULL,
+    PRIMARY KEY (`student_id`),
+    KEY `fk_St_person_id` (`person_id`),
+    CONSTRAINT `fk_St_person_id` FOREIGN KEY (`person_id`)
+        REFERENCES `person` (`person_id`)
+)  ENGINE=INNODB AUTO_INCREMENT=152 DEFAULT CHARSET=LATIN1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -550,12 +555,12 @@ DROP TABLE IF EXISTS `vehicle`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vehicle` (
-  `vehicle_id` int(11) NOT NULL AUTO_INCREMENT,
-  `vehicle_plate` varchar(75) DEFAULT NULL,
-  `model` varchar(75) DEFAULT NULL,
-  `make` varchar(75) DEFAULT NULL,
-  PRIMARY KEY (`vehicle_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
+    `vehicle_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `vehicle_plate` VARCHAR(75) DEFAULT NULL,
+    `model` VARCHAR(75) DEFAULT NULL,
+    `make` VARCHAR(75) DEFAULT NULL,
+    PRIMARY KEY (`vehicle_id`)
+)  ENGINE=INNODB AUTO_INCREMENT=21 DEFAULT CHARSET=LATIN1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -659,26 +664,31 @@ DROP TABLE IF EXISTS `order`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `order` (
-  `order_id` int(11) NOT NULL AUTO_INCREMENT,
-  `person_id` int(11) NOT NULL,
-  `delivery_id` int(11) NOT NULL,
-  `location_id` int(11) NOT NULL,
-  `driver_id` int(11) NOT NULL,
-  `restaurant_id` int(11) NOT NULL,
-  `total_price` float NOT NULL,
-  `delivery_charge` float DEFAULT NULL,
-  PRIMARY KEY (`order_id`),
-  KEY `fk_O_person_id` (`person_id`),
-  KEY `fk_O_delivery_id` (`delivery_id`),
-  KEY `fk_O_location_id` (`location_id`),
-  KEY `fk_O_driver_id` (`driver_id`),
-  KEY `fk_O_restaurant_id` (`restaurant_id`),
-  CONSTRAINT `fk_O_delivery_id` FOREIGN KEY (`delivery_id`) REFERENCES `delivery` (`delivery_id`),
-  CONSTRAINT `fk_O_driver_id` FOREIGN KEY (`driver_id`) REFERENCES `driver` (`driver_id`),
-  CONSTRAINT `fk_O_location_id` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`),
-  CONSTRAINT `fk_O_person_id` FOREIGN KEY (`person_id`) REFERENCES `person` (`person_id`),
-  CONSTRAINT `fk_O_restaurant_id` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurant` (`restaurant_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
+    `order_id` INT(11) NOT NULL AUTO_INCREMENT,
+    `person_id` INT(11) NOT NULL,
+    `delivery_id` INT(11) NOT NULL,
+    `location_id` INT(11) NOT NULL,
+    `driver_id` INT(11) NOT NULL,
+    `restaurant_id` INT(11) NOT NULL,
+    `total_price` FLOAT NOT NULL,
+    `delivery_charge` FLOAT DEFAULT NULL,
+    PRIMARY KEY (`order_id`),
+    KEY `fk_O_person_id` (`person_id`),
+    KEY `fk_O_delivery_id` (`delivery_id`),
+    KEY `fk_O_location_id` (`location_id`),
+    KEY `fk_O_driver_id` (`driver_id`),
+    KEY `fk_O_restaurant_id` (`restaurant_id`),
+    CONSTRAINT `fk_O_delivery_id` FOREIGN KEY (`delivery_id`)
+        REFERENCES `delivery` (`delivery_id`),
+    CONSTRAINT `fk_O_driver_id` FOREIGN KEY (`driver_id`)
+        REFERENCES `driver` (`driver_id`),
+    CONSTRAINT `fk_O_location_id` FOREIGN KEY (`location_id`)
+        REFERENCES `location` (`location_id`),
+    CONSTRAINT `fk_O_person_id` FOREIGN KEY (`person_id`)
+        REFERENCES `person` (`person_id`),
+    CONSTRAINT `fk_O_restaurant_id` FOREIGN KEY (`restaurant_id`)
+        REFERENCES `restaurant` (`restaurant_id`)
+)  ENGINE=INNODB AUTO_INCREMENT=102 DEFAULT CHARSET=LATIN1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -768,4 +778,107 @@ BEGIN
     RETURN(restaurant_id_var);
 END $$
 
+DELIMITER ;
+
 /* Added Views */
+
+/*
+	Gets the best restaurants in the system, 
+    as well as the max price associated with that restaurant.
+*/
+
+DROP VIEW IF EXISTS best_restaurants_view;
+
+CREATE VIEW best_restaurants_view AS
+
+WITH get_restaurants AS (
+	SELECT
+	r.restaurant_id, 
+    o.total_price,
+    rt.rating
+	FROM restaurant AS r
+	INNER JOIN `order` AS o 
+		ON r.restaurant_id= o.restaurant_id
+	INNER JOIN RestaurantRatingTable AS rt
+		ON r.Restaurant_ID = rt.Restaurant_ID
+    ORDER BY r.restaurant_id
+)
+
+SELECT restaurant_id,
+	MAX(restaurant.total_price) as max_price,
+	AVG(restaurant.rating) as avg_rating
+FROM get_restaurants AS restaurant
+WHERE restaurant.rating > 0
+GROUP BY restaurant_id
+ORDER BY restaurant.rating DESC;
+
+/*
+	Gets the most expensive restaurants as well as the ranking.
+*/
+
+DROP VIEW IF EXISTS most_expensive_restaurants;
+
+CREATE VIEW most_expensive_restaurants AS
+
+SELECT r.restaurant_id, 
+	r.restaurant_name, 
+	o.total_price,
+	RANK() OVER (ORDER BY total_price DESC) AS Rank_Num
+FROM restaurant AS r
+INNER JOIN `order` AS o 
+ON r.restaurant_id= o.restaurant_id
+GROUP BY r.restaurant_id, total_price
+ORDER BY Rank_Num;
+
+/*
+	Gets a summary of orders, such as avg restaurant rating, average driver rating, 
+    average delivery charge, number of orders, and total prices.
+*/
+
+DROP VIEW IF EXISTS restaurant_order_summary;
+
+CREATE VIEW restaurant_order_summary AS
+    SELECT 
+        o.restaurant_id,
+        ROUND(AVG(o.delivery_charge), 2) AS avg_delivery_charge,
+        ROUND(o.total_price, 2) AS total_price,
+        COUNT(o.order_id) AS number_of_orders,
+        AVG(r.Rating) AS Avg_Restaurant_Rating,
+        AVG(d.Rating) AS Avg_Driver_Rating
+    FROM
+        `order` AS o
+            INNER JOIN
+        RestaurantRatingTable AS r ON o.restaurant_id = r.Restaurant_ID
+            INNER JOIN
+        DriverRatingTable AS d ON o.driver_id = d.Driver_ID
+    GROUP BY r.restaurant_id
+    ORDER BY r.restaurant_id;
+    
+    /*
+	Gets the restaurants with 
+    exceptional drivers (drivers with at least 4 rating).
+*/
+
+DROP VIEW IF EXISTS restaurants_with_exceptional_drivers;
+
+CREATE VIEW restaurants_with_exceptional_drivers AS
+    SELECT 
+        r.restaurant_name,
+        r.location,
+        ROUND(AVG(o.delivery_charge), 2) AS avg_delivery_charge
+    FROM
+        `order` AS o
+            INNER JOIN
+        restaurant r ON o.restaurant_id = r.restaurant_id
+            INNER JOIN
+        RestaurantRatingTable rrt ON r.restaurant_id = rrt.restaurant_id
+    WHERE
+        EXISTS( SELECT 
+                Driver_Id
+            FROM
+                DriverRatingTable AS drt
+            WHERE
+                Rating > 4
+                    AND drt.Driver_Id = o.Driver_Id)
+    GROUP BY r.restaurant_name , r.location
+    ORDER BY r.restaurant_name , r.location;
