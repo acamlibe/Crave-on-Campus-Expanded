@@ -6,7 +6,10 @@ DROP FUNCTION IF EXISTS `get_restaurant_id`;
 /* Create Function */
 DELIMITER $$
 
-CREATE FUNCTION get_restaurant_id (restaurant_name_var VARCHAR(100))
+CREATE FUNCTION get_restaurant_id 
+(
+    restaurant_name_var VARCHAR(100)
+)
 RETURNS INT
 
 BEGIN
