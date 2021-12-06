@@ -9,7 +9,7 @@ DROP PROCEDURE IF EXISTS `get_restaurant_statistics`;
 DELIMITER $$
 
 CREATE PROCEDURE `get_restaurant_statistics` (
-	IN search_restaurant_id INT
+    IN search_restaurant_id INT
 )
 BEGIN
     SELECT 
