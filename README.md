@@ -4,6 +4,12 @@ This is a repository of all the work that goes into the Crave on Campus project 
 
 Data Dictionary: [Web Application](https://acamlibe.github.io/Crave-on-Campus-Expanded/Dictionary)
 
+## Important Notes
+
+- The AWS cloud instance hostname, port, and credentials will be provided to you on the Canvas submission.
+- If you want to recreate the database onto your local instance, please run the **db_dump.sql** file found in the Scripts folder.
+- If you want to recreate the database on our AWS cloud instance, please run the **CampusEatsSetupScript.sql** file found in the Scripts folder.
+
 ## Team Members
 
 - Saurabh Vijay
