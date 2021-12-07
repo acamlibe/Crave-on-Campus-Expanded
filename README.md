@@ -2,9 +2,11 @@
 
 This is a repository of all the work that goes into the Crave on Campus project we have for DSBA-6160.
 
+GitHub Repo: [Link to GitHub Repo](https://github.com/acamlibe/Crave-on-Campus-Expanded)
+
 GitHub Pages: [Link to Project Site](https://acamlibe.github.io/Crave-on-Campus-Expanded/)
 
-Data Dictionary: [Web Application](https://acamlibe.github.io/Crave-on-Campus-Expanded/Dictionary)
+Data Dictionary: [Link to Data Dictionary](https://acamlibe.github.io/Crave-on-Campus-Expanded/Dictionary)
 
 ## Important Notes
 
