@@ -208,11 +208,13 @@ SET character_set_client = @saved_cs_client;
 --
 DROP TABLE IF EXISTS `RestaurantRatingTable`;
 
-CREATE TABLE `RestaurantRatingTable` (
-    `RestaurantRating_ID` MEDIUMINT,
-    `Restaurant_ID` MEDIUMINT,
-    `Rating` MEDIUMINT DEFAULT NULL,
-    PRIMARY KEY (`RestaurantRating_ID`)
+CREATE TABLE `RestaurantRatingTable` 
+(
+    `RestaurantRating_ID` INT,
+    `Restaurant_ID` INT,
+    `Rating` INT DEFAULT NULL,
+    PRIMARY KEY (`RestaurantRating_ID`),
+    FOREIGN KEY (`Restaurant_ID`) REFERENCES restaurant(`Restaurant_ID`)
 )  AUTO_INCREMENT=1;
 
 --
@@ -346,12 +348,14 @@ UNLOCK TABLES;
 --
 DROP TABLE IF EXISTS `DriverRatingTable`;
 
-CREATE TABLE `DriverRatingTable` (
-    `DriverRating_ID` MEDIUMINT,
-    `Driver_ID` MEDIUMINT,
-    `Rating` MEDIUMINT DEFAULT NULL,
-    PRIMARY KEY (`DriverRating_ID`)
-)  AUTO_INCREMENT=1;
+CREATE TABLE `DriverRatingTable` 
+(
+    `DriverRating_ID` INT,
+    `Driver_ID` INT,
+    `Rating` INT DEFAULT NULL,
+    PRIMARY KEY (`DriverRating_ID`),
+    FOREIGN KEY (`Driver_ID`) REFERENCES driver(`Driver_ID`)
+) AUTO_INCREMENT = 1;
 
 --
 -- Dumping data for table `DriverRatingTable`
