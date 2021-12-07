@@ -946,14 +946,16 @@ CREATE VIEW restaurants_with_exceptional_drivers AS
     ORDER BY r.restaurant_name , r.location;
 
 /* Indexes */
+/* Indexes for the most referenced columns. */
+
 CREATE INDEX delivery_index
 ON delivery (delivery_id, driver_id, vehicle_id); 
 
 CREATE INDEX driver_index
-ON driver (driver_id, student_id, rating); 
+ON driver (driver_id, student_id); 
 
 CREATE INDEX driver_rating_index
-ON DriverRatingTable (driver_id, rating); 
+ON DriverRatingTable (driver_id); 
 
 CREATE INDEX faculty_index
 ON faculty (person_id, title); 
@@ -971,7 +973,7 @@ CREATE INDEX restaurant_index
 ON restaurant (restaurant_id, restaurant_name); 
 
 CREATE INDEX restaurant_rating_index
-ON RestaurantRatingTable (restaurant_id, rating); 
+ON RestaurantRatingTable (restaurant_id); 
 
 CREATE INDEX staff_index
 ON staff (staff_id, person_id); 
