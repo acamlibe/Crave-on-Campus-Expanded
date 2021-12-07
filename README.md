@@ -6,7 +6,9 @@ Data Dictionary: [Web Application](https://acamlibe.github.io/Crave-on-Campus-Ex
 
 ## Important Notes
 
-- The AWS cloud instance hostname, port, and credentials will be provided to you on the Canvas submission. You can recreate the database, run our SQL scripts, run your own SQL scripts all you want!
+- The AWS cloud instance hostname, port, and credentials will be provided to you on the Canvas submission.
+  - The cloud instance will have the database fully setup for you to browse.
+- You can recreate our database, run our SQL scripts, and run your own SQL scripts all you want!
   - If you want to recreate the database onto your local instance, please run the **db_dump.sql** file found in the Scripts folder.
   - If you want to recreate the database on our AWS cloud instance, please run the **CampusEatsSetupScript.sql** file found in the Scripts folder.
 
