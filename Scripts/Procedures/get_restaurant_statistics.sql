@@ -43,4 +43,4 @@ END$$
 DELIMITER ;
 
 /* Test the Procedure */
-CALL restaurant_statistics (7);
+CALL get_restaurant_statistics (7);

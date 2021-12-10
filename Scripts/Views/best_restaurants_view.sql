@@ -11,7 +11,7 @@ CREATE VIEW best_restaurants_view AS
     WITH get_restaurants AS (
         SELECT
             r.restaurant_id, 
-            o.total_price,
+            ROUND(o.total_price, 2) AS total_price,
             rt.rating
         FROM restaurant AS r
         INNER JOIN `order` AS o 
